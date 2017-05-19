@@ -1,0 +1,47 @@
+{
+  "entries": [
+    {
+      "uuid": "3ecc2ca0bc5b49f4f9f95ef0f18bf21d",
+      "start": 1488074700,
+      "start_extra": 0,
+      "start_real": 1488074370,
+      "stop": 1488083400,
+      "stop_extra": 0,
+      "stop_real": 1488084000,
+      "duration": 9630,
+      "channel": "ac3d1940e2fcea59515e1dc82480d09c",
+      "channel_icon": "",
+      "channelname": "VOX",
+      "title": {
+        "ger": "Die Verurteilten"
+      },
+      "disp_title": "Die Verurteilten",
+      "disp_subtitle": "",
+      "description": {
+        "ger": "Wiederholung vom Samstag, 20:15 Uhr. Bankier Andy Dufresne soll zweimal lebenslänglich im Staatsgefängnis 'Shawshank' absitzen. Sadistisches Gefängnispersonal macht ihm das Leben ebenso zur Hölle wie brutale Mithäftlinge, aber Dufresne gelingt es nach und nach, die Bedingungen im Gefängnis zu verändern, bis etwas Unvorhersehbares geschieht."
+      },
+      "disp_description": "Wiederholung vom Samstag, 20:15 Uhr. Bankier Andy Dufresne soll zweimal lebenslänglich im Staatsgefängnis 'Shawshank' absitzen. Sadistisches Gefängnispersonal macht ihm das Leben ebenso zur Hölle wie brutale Mithäftlinge, aber Dufresne gelingt es nach und nach, die Bedingungen im Gefängnis zu verändern, bis etwas Unvorhersehbares geschieht.",
+      "pri": 2,
+      "retention": 0,
+      "container": -1,
+      "config_name": "ecc2241b00651affdf5c2c96dcda4b2f",
+      "owner": "Alex-TV",
+      "creator": "Alex-TV",
+      "errorcode": 0,
+      "errors": 0,
+      "data_errors": 0,
+      "dvb_eid": 61616,
+      "noresched": false,
+      "autorec": "",
+      "timerec": "",
+      "content_type": 0,
+      "broadcast": 68743410,
+      "url": "",
+      "filesize": 0,
+      "status": "Scheduled for recording",
+      "sched_status": "scheduled",
+      "duplicate": 0
+    }
+  ],
+  "total": 1
+}
