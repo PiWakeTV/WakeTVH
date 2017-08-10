@@ -50,6 +50,12 @@
       <groupId>com.google.code.gson</groupId>
       <artifactId>gson</artifactId>
     </dependency>
+
+    <dependency>
+      <groupId>com.jamierf</groupId>
+      <artifactId>wol</artifactId>
+      <version>0.2</version>
+    </dependency>
   </dependencies>
 
   <build>
