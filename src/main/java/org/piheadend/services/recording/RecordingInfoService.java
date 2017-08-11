@@ -35,22 +35,22 @@ public class RecordingInfoService {
 
     private static final Logger log = LoggerFactory.getLogger(RecordingInfoService.class);
 
-    private final String tvh_protocol;
-    private final String tvh_host;
-    private final String tvh_port;
-    private final String tvh_path;
-    private final String tvh_user;
-    private final String tvh_password;
+    private final String tvhProtocol;
+    private final String tvhHost;
+    private final String tvhPort;
+    private final String tvhPath;
+    private final String tvhUser;
+    private final String tvhPassword;
 
     @Autowired
     public RecordingInfoService(final Environment environment) {
         Assert.notNull(environment);
-        this.tvh_protocol = environment.getRequiredProperty("tvheadend.protocol");
-        this.tvh_host = environment.getRequiredProperty("tvheadend.host");
-        this.tvh_port = environment.getRequiredProperty("tvheadend.port");
-        this.tvh_path = environment.getRequiredProperty("tvheadend.path");
-        this.tvh_user = environment.getRequiredProperty("tvheadend.user");
-        this.tvh_password = environment.getRequiredProperty("tvheadend.password");
+        this.tvhProtocol = environment.getRequiredProperty("tvheadend.protocol");
+        this.tvhHost = environment.getRequiredProperty("tvheadend.host");
+        this.tvhPort = environment.getRequiredProperty("tvheadend.port");
+        this.tvhPath = environment.getRequiredProperty("tvheadend.path");
+        this.tvhUser = environment.getRequiredProperty("tvheadend.user");
+        this.tvhPassword = environment.getRequiredProperty("tvheadend.password");
     }
 
     /**
@@ -112,7 +112,7 @@ public class RecordingInfoService {
      * @throws IOException In case the List cannot be obtained from the server.
      */
     private JSONObject readJson() throws IOException {
-        final String auth = this.tvh_user + ":" + this.tvh_password;
+        final String auth = this.tvhUser + ":" + this.tvhPassword;
         final HttpURLConnection connection = (HttpURLConnection) buildURL().openConnection();
         final String encoded = Base64.getEncoder().encodeToString((auth).getBytes(StandardCharsets.UTF_8));
         connection.setRequestProperty("Authorization", "Basic "+encoded);
@@ -134,10 +134,10 @@ public class RecordingInfoService {
 
         try {
             url = new URIBuilder()
-                    .setScheme(this.tvh_protocol)
-                    .setHost(this.tvh_host)
-                    .setPort(Integer.valueOf(this.tvh_port))
-                    .setPath(this.tvh_path)
+                    .setScheme(this.tvhProtocol)
+                    .setHost(this.tvhHost)
+                    .setPort(Integer.valueOf(this.tvhPort))
+                    .setPath(this.tvhPath)
                     .build().toURL();
         } catch (MalformedURLException | URISyntaxException e) {
             log.error("Could not create the URL for the TVheadend endpoint.", e);
