@@ -24,6 +24,9 @@ class WakeServiceImpl implements WakeService {
 
     private final String mac;
 
+    /**
+     * {@inheritDoc}
+     */
     @Autowired
     public WakeServiceImpl(@Value("${tvheadend.mac}") final String mac) {
         this.mac = mac;
@@ -35,9 +38,10 @@ class WakeServiceImpl implements WakeService {
     }
 
     /**
-     * Sends a magic packet (Wake-on-LAN) to the TVH server.
+     * {@inheritDoc}
      */
-    private void wake() {
+    @Override
+    public void wake() {
         try {
             WakeOnLan.wake(mac);
         } catch (IOException | DecoderException e) {
