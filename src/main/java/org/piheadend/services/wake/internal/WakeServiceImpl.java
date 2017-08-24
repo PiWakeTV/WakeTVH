@@ -18,7 +18,7 @@ import java.io.IOException;
  * @since 11.08.2017
  */
 @Service
-public class WakeServiceImpl implements WakeService {
+class WakeServiceImpl implements WakeService {
 
     private static final Logger log = LoggerFactory.getLogger(WakeServiceImpl.class);
 

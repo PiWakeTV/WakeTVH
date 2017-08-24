@@ -16,7 +16,7 @@ import java.util.List;
  * {@inheritDoc}
  */
 @Service
-public class StorageServiceImpl implements StorageService {
+class StorageServiceImpl implements StorageService {
 
     private final Gson gson = new Gson();
     private final String path;
