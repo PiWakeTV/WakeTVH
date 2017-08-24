@@ -9,9 +9,7 @@ package org.piheadend.services.wake;
 public interface WakeService {
 
     /**
-     * Sends a magic packet (Wake-on-LAN) to the TVH server.
-     *
-     * @throws Exception Occurs on transmission failures.
+     * Checks wheter a wake-up of the TVHeadend server is required - if so, a magic packet will be sent.
      */
-    void wake() throws Exception;
+    void checkWake();
 }

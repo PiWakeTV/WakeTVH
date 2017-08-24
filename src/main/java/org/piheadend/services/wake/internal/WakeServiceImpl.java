@@ -30,7 +30,14 @@ class WakeServiceImpl implements WakeService {
     }
 
     @Override
-    public void wake() {
+    public void checkWake() {
+        wake();
+    }
+
+    /**
+     * Sends a magic packet (Wake-on-LAN) to the TVH server.
+     */
+    private void wake() {
         try {
             WakeOnLan.wake(mac);
         } catch (IOException | DecoderException e) {
