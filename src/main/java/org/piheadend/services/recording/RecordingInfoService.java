@@ -3,6 +3,7 @@ package org.piheadend.services.recording;
 import org.apache.http.client.utils.URIBuilder;
 import org.json.JSONArray;
 import org.json.JSONObject;
+import org.piheadend.services.storage.StorageService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,15 +43,34 @@ public class RecordingInfoService {
     private final String tvhUser;
     private final String tvhPassword;
 
+    private final StorageService storageService;
+
     @Autowired
-    public RecordingInfoService(final Environment environment) {
+    public RecordingInfoService(final Environment environment, final StorageService storageService) {
         Assert.notNull(environment);
+        Assert.notNull(storageService, "StorageService must not be 'null'.");
         this.tvhProtocol = environment.getRequiredProperty("tvheadend.protocol");
         this.tvhHost = environment.getRequiredProperty("tvheadend.host");
         this.tvhPort = environment.getRequiredProperty("tvheadend.port");
         this.tvhPath = environment.getRequiredProperty("tvheadend.path");
         this.tvhUser = environment.getRequiredProperty("tvheadend.user");
         this.tvhPassword = environment.getRequiredProperty("tvheadend.password");
+        this.storageService = storageService;
+    }
+
+    /**
+     * Checks the list of {@link RecordingInfo} and persists them on disk.
+     */
+    public void updateRecordings() {
+        try {
+            final List<RecordingInfo> info = gatherRecordingInfo();
+            for(final RecordingInfo i : info) {
+                log.info("Film: {}, Start: {}, Ende: {}", i.getTitle(), i.getStart(), i.getEnd());
+            }
+            storageService.saveToDisk(info);
+        } catch (IOException e) {
+            log.error("JSON konnte nicht geladen werden.");
+        }
     }
 
     /**
@@ -59,7 +79,7 @@ public class RecordingInfoService {
      * @return List of {@link RecordingInfo} from the TVheadend server.
      * @throws IOException In case the List cannot be obtained from the server.
      */
-    public List<RecordingInfo> gatherRecordingInfo() throws IOException {
+    private List<RecordingInfo> gatherRecordingInfo() throws IOException {
         return parseJson();
     }
 
