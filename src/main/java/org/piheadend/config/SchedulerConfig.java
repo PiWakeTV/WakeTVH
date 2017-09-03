@@ -42,12 +42,4 @@ public class SchedulerConfig {
     public void pollForWakes() {
         wakeService.checkWake();
     }
-
-    /**
-     * Custom wake-ups by cron expression.
-     */
-    @Scheduled(cron = "${wake.cron.expression}")
-    public void customWakes() {
-        wakeService.wake();
-    }
 }
