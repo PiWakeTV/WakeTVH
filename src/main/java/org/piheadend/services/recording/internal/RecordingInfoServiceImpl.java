@@ -72,7 +72,7 @@ class RecordingInfoServiceImpl implements RecordingInfoService {
             }
             storageService.saveToDisk(info);
         } catch (IOException e) {
-            log.error("JSON konnte nicht geladen werden.");
+            log.error("Could not load JSON with recording information from TVHeadend server.");
         }
     }
 
